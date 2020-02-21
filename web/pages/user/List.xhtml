@@ -10,16 +10,19 @@
             <h:outputText value="#{bundle.ListUserTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
+            
+            <h:form>
+                <center>
+                    <h2><h:outputText value="Usuarios"/></h2>
+                </center>
+
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
                 <h:outputText escape="false" value="#{bundle.ListUserEmpty}" rendered="#{userController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{userController.items.rowCount > 0}">
-                    <h:outputText value="#{userController.pagination.pageFirstItem + 1}..#{userController.pagination.pageLastItem + 1}/#{userController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{userController.previous}" value="#{bundle.Previous} #{userController.pagination.pageSize}" rendered="#{userController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{userController.next}" value="#{bundle.Next} #{userController.pagination.pageSize}" rendered="#{userController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{userController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    
+                    <h:dataTable class="table table-striped table-hover table-bordered" value="#{userController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="width: 70%; text-align: center;margin-left: 20%;">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUserTitle_iduser}"/>
@@ -48,19 +51,33 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{userController.prepareView}" value="#{bundle.ListUserViewLink}"/>
+                            <h:commandLink action="#{userController.prepareView}" value="#{bundle.ListUserViewLink}" class="btn btn-primary"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{userController.prepareEdit}" value="#{bundle.ListUserEditLink}"/>
+                            <h:commandLink action="#{userController.prepareEdit}" value="#{bundle.ListUserEditLink}" class="btn btn-success"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{userController.destroy}" value="#{bundle.ListUserDestroyLink}"/>
+                            <h:commandLink action="#{userController.destroy}" value="#{bundle.ListUserDestroyLink}" class="btn btn-danger"/>
                         </h:column>
                     </h:dataTable>
+                    <h:outputText value="#{userController.pagination.pageFirstItem + 1}..#{userController.pagination.pageLastItem + 1}/#{userController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandButton class="btn btn-default" action="#{userController.previous}" value="#{bundle.Previous} #{userController.pagination.pageSize}" rendered="#{userController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandButton class="btn btn-default" action="#{userController.next}" value="#{bundle.Next} #{userController.pagination.pageSize}" rendered="#{userController.pagination.hasNextPage}"/>&nbsp;
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{userController.prepareCreate}" value="#{bundle.ListUserCreateLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ListUserIndexLink}"/>
+                <div class="form-group">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-6">
+                        <div class="col-sm-2">
+                            <h:commandButton action="#{userController.prepareCreate}" value="#{bundle.ListUserCreateLink}" class="btn btn-primary" />
+                            
+                        </div>
+                        <div class="col-sm-6">
+                            
+                        </div>
+                        <div class="col-sm-2">
+                            <h:link outcome="/index" value="#{bundle.ListUserIndexLink}" class="btn btn-success" style="width: 80px;"/>
+                        </div>
+                    </div>
+                </div>
             </h:form>
         </ui:define>
     </ui:composition>

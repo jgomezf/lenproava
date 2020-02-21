@@ -24,7 +24,7 @@
             <div class="form-group">
                  <h:outputLabel value="#{bundle.CreateUserLabel_iduser}" for="iduser" class="control-label col-sm-4"/>
                 <div class="col-sm-4">
-                    <h:inputText id="iduser" class="form-control" value="#{userController.selected.iduser}" title="#{bundle.CreateUserTitle_iduser}" required="true" requiredMessage="#{bundle.CreateUserRequiredMessage_iduser}"/>
+                    <h:inputText disabled="true" id="iduser" class="form-control" value="0" title="#{bundle.CreateUserTitle_iduser}" required="true" requiredMessage="#{bundle.CreateUserRequiredMessage_iduser}"/>
                 </div>
             </div>
             <div class="form-group">
@@ -36,7 +36,7 @@
             <div class="form-group">
                 <h:outputLabel value="#{bundle.CreateUserLabel_userPassword}" for="userPassword" class="control-label col-sm-4"/>
                 <div class="col-sm-4">
-                    <h:inputText id="userPassword" class="form-control" value="#{userController.selected.userPassword}" title="#{bundle.CreateUserTitle_userPassword}" required="true" requiredMessage="#{bundle.CreateUserRequiredMessage_userPassword}"/>
+                    <h:inputSecret id="userPassword" class="form-control" value="#{userController.selected.userPassword}" title="#{bundle.CreateUserTitle_userPassword}" required="true" requiredMessage="#{bundle.CreateUserRequiredMessage_userPassword}"/>
                 </div>
             </div>
             <div class="form-group">

@@ -17,45 +17,48 @@
             <div class="form-group">
                 <div class="col-sm-4"></div>
                 <div  class="col-sm-4">
-                    <h:outputText style="text-align: center" value="#{bundle.CreateUserTitle}"></h:outputText>
+                    <h2 style="text-align: center">Editar Usuario</h2>
                 </div>
             </div>
             <hr/>
             <div class="form-group">
-                 <h:outputLabel value="#{bundle.CreateUserLabel_iduser}" for="iduser" class="control-label col-sm-4"/>
+                 <h:outputLabel value="#{bundle.EditUserLabel_iduser}" for="iduser" class="control-label col-sm-4"/>
                 <div class="col-sm-4">
-                    <h:inputText id="iduser" class="form-control" value="#{userController.selected.iduser}" title="#{bundle.CreateUserTitle_iduser}" required="true" requiredMessage="#{bundle.CreateUserRequiredMessage_iduser}"/>
+                    <h:inputText disabled="true" id="iduser" value="#{userController.selected.iduser}" title="#{bundle.EditUserTitle_iduser}" required="true" requiredMessage="#{bundle.EditUserRequiredMessage_iduser}"/>
                 </div>
             </div>
             <div class="form-group">
-                <h:outputLabel value="#{bundle.CreateUserLabel_userName}" for="userName" class="control-label col-sm-4"/>
+                <h:outputLabel value="#{bundle.EditUserLabel_userName}" for="userName" class="control-label col-sm-4"/>
                 <div class="col-sm-4">
-                    <h:inputText id="userName" class="form-control" value="#{userController.selected.userName}" title="#{bundle.CreateUserTitle_userName}" required="true" requiredMessage="#{bundle.CreateUserRequiredMessage_userName}"/>
+                    <h:inputText class="form-control" id="userName" value="#{userController.selected.userName}" title="#{bundle.EditUserTitle_userName}" required="true" requiredMessage="#{bundle.EditUserRequiredMessage_userName}"/>
                 </div>
             </div>
             <div class="form-group">
-                <h:outputLabel value="#{bundle.CreateUserLabel_userPassword}" for="userPassword" class="control-label col-sm-4"/>
+                <h:outputLabel value="#{bundle.EditUserLabel_userPassword}" for="userPassword" class="control-label col-sm-4"/>
                 <div class="col-sm-4">
-                    <h:inputText id="userPassword" class="form-control" value="#{userController.selected.userPassword}" title="#{bundle.CreateUserTitle_userPassword}" required="true" requiredMessage="#{bundle.CreateUserRequiredMessage_userPassword}"/>
+                    <h:inputText class="form-control" id="userPassword" value="#{userController.selected.userPassword}" title="#{bundle.EditUserTitle_userPassword}" required="true" requiredMessage="#{bundle.EditUserRequiredMessage_userPassword}"/>
                 </div>
             </div>
             <div class="form-group">
-                <h:outputLabel value="#{bundle.CreateUserLabel_userEmail}" for="userEmail" class="control-label col-sm-4"/>
+                <h:outputLabel value="#{bundle.EditUserLabel_userEmail}" for="userEmail" class="control-label col-sm-4"/>
                 <div class="col-sm-4">
-                    <h:inputText id="userEmail" class="form-control" value="#{userController.selected.userEmail}" title="#{bundle.CreateUserTitle_userEmail}" required="true" requiredMessage="#{bundle.CreateUserRequiredMessage_userEmail}"/>
+                    <h:inputText class="form-control" id="userEmail" value="#{userController.selected.userEmail}" title="#{bundle.EditUserTitle_userEmail}" required="true" requiredMessage="#{bundle.EditUserRequiredMessage_userEmail}"/>
                 </div>
             </div>            
             <div class="form-group">
                 <div class="col-sm-4"></div>
-                <div class="col-sm-4">
+                <div class="col-sm-6">
+                    <div class="col-sm-2">
+                        <h:commandButton value="#{bundle.EditUserSaveLink}" action="#{userController.update}" class="btn btn-primary" style="width: 80px;"></h:commandButton>
+                    </div>
                     <div class="col-sm-4">
-                        <h:commandButton value="#{bundle.CreateUserSaveLink}" action="#{userController.create}" class="btn btn-primary" style="width: 80px;"></h:commandButton>
-                        </div>
-                    <div class="col-sm-6">
-                        <h:commandLink action="#{userController.prepareList}" value="#{bundle.CreateUserShowAllLink}" immediate="true" class="btn btn-default"/>
+                        <h:commandLink action="#{userController.prepareList}" value="#{bundle.EditUserShowAllLink}" immediate="true" class="btn btn-default"/>
                     </div>
                     <div class="col-sm-2">
-                        <h:link outcome="/index" value="#{bundle.CreateUserIndexLink}" class="btn btn-success" style="width: 80px;"/>
+                        <h:link outcome="/index" value="#{bundle.EditUserIndexLink}" class="btn btn-success" style="width: 80px;"/>
+                    </div>
+                    <div class="col-sm-2">
+                        <h:link outcome="View" value="#{bundle.EditUserViewLink}" class="btn btn-success" style="width: 80px;"/>
                     </div>
                 </div>
             </div>

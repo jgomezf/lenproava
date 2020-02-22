@@ -27,20 +27,20 @@ and open the template in the editor.
             <div class="form-group">
                 <h:outputLabel for="username" value="Usuario:" class="control-label col-sm-4"/>
                 <div class="col-sm-4">
-                    <h:inputText value="" id="userName" class="form-control" required="true" label="username" />
+                    <h:inputText value="#{userController.selected.userName}" id="userName" class="form-control" required="true" label="username" />
                  </div>
             </div>
             <div class="form-group">
                 <h:outputLabel for="password" value="Clave:" class="control-label col-sm-4"/>
                 <div class="col-sm-4">
-                    <h:inputSecret value="" id="userPassword" required="true" class="form-control" label="password" />
+                    <h:inputSecret value="#{userController.selected.userPassword}" id="userPassword" required="true" class="form-control" label="password" />
                  </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4">
                     <div class="col-md-4">
-                        <h:commandButton value="#{bundle.UserLogin}" action="#{userController.create}" class="btn btn-primary" ></h:commandButton>
+                        <h:commandButton value="#{bundle.UserLogin}" action="#{userController.login}" class="btn btn-primary" ></h:commandButton>
                         </div>
                     <div class="col-md-6">
                         <h:commandLink action="#{userController.prepareList}" value="#{bundle.CreateUserShowAllLink}" immediate="true" class="btn btn-default"/>

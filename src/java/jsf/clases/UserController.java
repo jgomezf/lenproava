@@ -231,5 +231,14 @@ public class UserController implements Serializable {
         }
 
     }
+    
+    public String login(){
+        User user = getFacade().login(current.getUserName(), current.getUserPassword());
+        if (user != null) {
+            return "/pages/cliente/List";
+        }
+        else
+            return "";        
+    }
 
 }

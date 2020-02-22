@@ -48,16 +48,16 @@
             <div class="form-group">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-6">
-                    <div class="col-sm-2">
+                    <div class="col-md-2">
                         <h:commandButton value="#{bundle.EditUserSaveLink}" action="#{userController.update}" class="btn btn-primary" style="width: 80px;"></h:commandButton>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-md-4">
                         <h:commandLink action="#{userController.prepareList}" value="#{bundle.EditUserShowAllLink}" immediate="true" class="btn btn-default"/>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-md-2">
                         <h:link outcome="/index" value="#{bundle.EditUserIndexLink}" class="btn btn-success" style="width: 80px;"/>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-md-2">
                         <h:link outcome="View" value="#{bundle.EditUserViewLink}" class="btn btn-success" style="width: 80px;"/>
                     </div>
                 </div>

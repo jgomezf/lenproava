@@ -10,7 +10,7 @@
             <h:outputText value="#{bundle.ListUserTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            
+
             <h:form>
                 <center>
                     <h2><h:outputText value="Usuarios"/></h2>
@@ -21,7 +21,7 @@
                 </h:panelGroup>
                 <h:outputText escape="false" value="#{bundle.ListUserEmpty}" rendered="#{userController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{userController.items.rowCount > 0}">
-                    
+
                     <h:dataTable class="table table-striped table-hover table-bordered" value="#{userController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="width: 70%; text-align: center;margin-left: 20%;">
                         <h:column>
                             <f:facet name="header">
@@ -37,12 +37,6 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUserTitle_userPassword}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.userPassword}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUserTitle_userEmail}"/>
                             </f:facet>
                             <h:outputText value="#{item.userEmail}"/>
@@ -51,7 +45,6 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{userController.prepareView}" value="#{bundle.ListUserViewLink}" class="btn btn-primary"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{userController.prepareEdit}" value="#{bundle.ListUserEditLink}" class="btn btn-success"/>
                             <h:outputText value=" "/>
@@ -68,10 +61,10 @@
                     <div class="col-sm-6">
                         <div class="col-sm-2">
                             <h:commandButton action="#{userController.prepareCreate}" value="#{bundle.ListUserCreateLink}" class="btn btn-primary" />
-                            
+
                         </div>
                         <div class="col-sm-6">
-                            
+
                         </div>
                         <div class="col-sm-2">
                             <h:link outcome="/index" value="#{bundle.ListUserIndexLink}" class="btn btn-success" style="width: 80px;"/>

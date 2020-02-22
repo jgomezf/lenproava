@@ -5,42 +5,82 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <ui:composition template="/template.xhtml">
-        <ui:define name="title">
-            <h:outputText value="#{bundle.EditClienteTitle}"></h:outputText>
-        </ui:define>
-        <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditClienteLabel_idcliente}" for="idcliente" />
-                    <h:inputText id="idcliente" value="#{clienteController.selected.idcliente}" title="#{bundle.EditClienteTitle_idcliente}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_idcliente}"/>
-                    <h:outputLabel value="#{bundle.EditClienteLabel_clienteName}" for="clienteName" />
-                    <h:inputText id="clienteName" value="#{clienteController.selected.clienteName}" title="#{bundle.EditClienteTitle_clienteName}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_clienteName}"/>
-                    <h:outputLabel value="#{bundle.EditClienteLabel_clienteEmail}" for="clienteEmail" />
-                    <h:inputText id="clienteEmail" value="#{clienteController.selected.clienteEmail}" title="#{bundle.EditClienteTitle_clienteEmail}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_clienteEmail}"/>
-                    <h:outputLabel value="#{bundle.EditClienteLabel_clienteTel}" for="clienteTel" />
-                    <h:inputText id="clienteTel" value="#{clienteController.selected.clienteTel}" title="#{bundle.EditClienteTitle_clienteTel}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_clienteTel}"/>
-                    <h:outputLabel value="#{bundle.EditClienteLabel_clienteCiudad}" for="clienteCiudad" />
-                    <h:inputText id="clienteCiudad" value="#{clienteController.selected.clienteCiudad}" title="#{bundle.EditClienteTitle_clienteCiudad}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_clienteCiudad}"/>
-                    <h:outputLabel value="#{bundle.EditClienteLabel_clienteDireccion}" for="clienteDireccion" />
-                    <h:inputText id="clienteDireccion" value="#{clienteController.selected.clienteDireccion}" title="#{bundle.EditClienteTitle_clienteDireccion}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_clienteDireccion}"/>
-                    <h:outputLabel value="#{bundle.EditClienteLabel_clienteNumDocumento}" for="clienteNumDocumento" />
-                    <h:inputText id="clienteNumDocumento" value="#{clienteController.selected.clienteNumDocumento}" title="#{bundle.EditClienteTitle_clienteNumDocumento}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_clienteNumDocumento}"/>
-                </h:panelGrid>
-                <h:commandLink action="#{clienteController.update}" value="#{bundle.EditClienteSaveLink}"/>
-                <br />
-                <br />
-                <h:link outcome="View" value="#{bundle.EditClienteViewLink}"/>
-                <br />
-                <h:commandLink action="#{clienteController.prepareList}" value="#{bundle.EditClienteShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.EditClienteIndexLink}" />
-            </h:form>
-        </ui:define>
-    </ui:composition>
+    <h:head>    
+        <title>Modificación de Cliente</title>
+        <h:outputStylesheet name="css/bootstrap.min.css"/>
+    </h:head>
+    <h:body>
+        <h:form id="form" class="form-horizontal">
+            <div class="form-group">
+                <div class="col-sm-4"></div>
+                <div  class="col-sm-4">
+                    <h2 style="text-align: center">Editar Cliente</h2>
+                </div>
+            </div>
+            <hr/>
+            <div class="form-group">
+                <h:outputLabel class="control-label col-sm-4" value="#{bundle.EditClienteLabel_idcliente}" for="idcliente" />                    
+                <div class="col-sm-4">
+                    <h:inputText disabled="true"  class="form-control" id="idcliente" value="#{clienteController.selected.idcliente}" title="#{bundle.EditClienteTitle_idcliente}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_idcliente}"/>                    
+                </div>
+            </div>
+            <div class="form-group">
+                <h:outputLabel class="control-label col-sm-4" value="#{bundle.EditClienteLabel_clienteName}" for="clienteName" />                    
+                <div class="col-sm-4">
+                    <h:inputText class="form-control" id="clienteName" value="#{clienteController.selected.clienteName}" title="#{bundle.EditClienteTitle_clienteName}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_clienteName}"/>                    
+                </div>
+            </div>
+            <div class="form-group">
+                <h:outputLabel class="control-label col-sm-4" value="#{bundle.EditClienteLabel_clienteNumDocumento}" for="clienteNumDocumento" />                    
+                <div class="col-sm-4">
+                    <h:inputText class="form-control" id="clienteNumDocumento" value="#{clienteController.selected.clienteNumDocumento}" title="#{bundle.EditClienteTitle_clienteNumDocumento}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_clienteNumDocumento}"/>                
+                </div>
+            </div>
+            <div class="form-group">
+                <h:outputLabel class="control-label col-sm-4" value="#{bundle.EditClienteLabel_clienteEmail}" for="clienteEmail" />
+                <div class="col-sm-4">
+                    <h:inputText class="form-control" id="clienteEmail" value="#{clienteController.selected.clienteEmail}" title="#{bundle.EditClienteTitle_clienteEmail}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_clienteEmail}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <h:outputLabel class="control-label col-sm-4" value="#{bundle.EditClienteLabel_clienteTel}" for="clienteTel" />                    
+                <div class="col-sm-4">
+                    <h:inputText class="form-control" id="clienteTel" value="#{clienteController.selected.clienteTel}" title="#{bundle.EditClienteTitle_clienteTel}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_clienteTel}"/>                    
+                </div>
+            </div>
+            <div class="form-group">
+                <h:outputLabel class="control-label col-sm-4" value="#{bundle.EditClienteLabel_clienteCiudad}" for="clienteCiudad" />
+                <div class="col-sm-4">
+                    <h:inputText class="form-control" id="clienteCiudad" value="#{clienteController.selected.clienteCiudad}" title="#{bundle.EditClienteTitle_clienteCiudad}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_clienteCiudad}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <h:outputLabel class="control-label col-sm-4" value="#{bundle.EditClienteLabel_clienteDireccion}" for="clienteDireccion" />                    
+                <div class="col-sm-4">
+                    <h:inputText class="form-control" id="clienteDireccion" value="#{clienteController.selected.clienteDireccion}" title="#{bundle.EditClienteTitle_clienteDireccion}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_clienteDireccion}"/>                    
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <h:panelGroup id="messagePanel" layout="block" style="text-align: -webkit-center;">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+            </div>
+            
+            <div class="form-group">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div class="col-md-6">
+                        <h:commandButton value="#{bundle.EditClienteSaveLink}" action="#{clienteController.update}" class="btn btn-primary" style="width: 80px;"></h:commandButton>
+                    </div>
+                    <div class="col-md-6">
+                        <h:commandLink action="#{clienteController.prepareList}" value="#{bundle.EditClienteShowAllLink}" immediate="true" class="btn btn-default"/>
+                    </div>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </h:form>
+    </h:body>
+    
 
 </html>

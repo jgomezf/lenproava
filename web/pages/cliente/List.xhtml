@@ -7,7 +7,7 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.ListClienteTitle}"></h:outputText>
+            <h:outputText value=""></h:outputText>
         </ui:define>
         <ui:define name="body">
 
@@ -21,65 +21,68 @@
                 </h:panelGroup>
                 <h:outputText escape="false" value="#{bundle.ListClienteEmpty}" rendered="#{clienteController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{clienteController.items.rowCount > 0}">
-                    
-                    <h:dataTable class="table table-striped table-hover table-bordered" value="#{clienteController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="width: 70%; text-align: center;margin-left: 20%;">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListClienteTitle_idcliente}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idcliente}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListClienteTitle_clienteName}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.clienteName}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListClienteTitle_clienteEmail}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.clienteEmail}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListClienteTitle_clienteTel}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.clienteTel}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListClienteTitle_clienteCiudad}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.clienteCiudad}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListClienteTitle_clienteDireccion}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.clienteDireccion}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListClienteTitle_clienteNumDocumento}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.clienteNumDocumento}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{clienteController.prepareEdit}" value="#{bundle.ListClienteEditLink}" class="btn btn-success"/>
-                            <h:outputText value=" "/>
-                        </h:column>
-                    </h:dataTable>
-                    <h:outputText value="#{clienteController.pagination.pageFirstItem + 1}..#{clienteController.pagination.pageLastItem + 1}/#{clienteController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{clienteController.previous}" value="#{bundle.Previous} #{clienteController.pagination.pageSize}" rendered="#{clienteController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{clienteController.next}" value="#{bundle.Next} #{clienteController.pagination.pageSize}" rendered="#{clienteController.pagination.hasNextPage}"/>&nbsp;
-                </h:panelGroup>
+                    <div class="form-group" style="text-align: center;">
+                        <h:dataTable class="table table-striped table-hover table-bordered" value="#{clienteController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="width: 70%; text-align: center;margin-left: 15%;">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListClienteTitle_idcliente}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.idcliente}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListClienteTitle_clienteName}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.clienteName}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListClienteTitle_clienteEmail}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.clienteEmail}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListClienteTitle_clienteTel}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.clienteTel}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListClienteTitle_clienteCiudad}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.clienteCiudad}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListClienteTitle_clienteDireccion}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.clienteDireccion}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListClienteTitle_clienteNumDocumento}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.clienteNumDocumento}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="&nbsp;"/>
+                                </f:facet>
+                                <h:outputText value=" "/>
+                                <h:commandLink action="#{clienteController.prepareEdit}" value="#{bundle.ListClienteEditLink}" class="btn btn-success"/>
+                                <h:outputText value=" "/>
+                            </h:column>
+                        </h:dataTable>
+                    </div>
+                    <div class="form-group" style="text-align: center;">
+                        <h:outputText value="#{clienteController.pagination.pageFirstItem + 1}..#{clienteController.pagination.pageLastItem + 1}/#{clienteController.pagination.itemsCount}"/>&nbsp;
+                        <h:commandLink action="#{clienteController.previous}" value="#{bundle.Previous} #{clienteController.pagination.pageSize}" rendered="#{clienteController.pagination.hasPreviousPage}"/>&nbsp;
+                        <h:commandLink action="#{clienteController.next}" value="#{bundle.Next} #{clienteController.pagination.pageSize}" rendered="#{clienteController.pagination.hasNextPage}"/>&nbsp;
+                    </div>
+                    </h:panelGroup>
                 <br />
-                <div class="form-group">
+                <div class="form-group" style="text-align: center;">
                     <div class="col-md-12">
                         <h:commandButton class="btn btn-primary" action="#{clienteController.prepareCreate}" value="#{bundle.ListClienteCreateLink}"/>
                     </div>                    

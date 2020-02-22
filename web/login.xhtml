@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head> 
+        <title>Login</title>
+        <h:outputStylesheet name="css/bootstrap.min.css"/>
+    </h:head> 
+    <h:body style="text-align:center">
+        <h:panelGroup id="mensajes" layout="block">
+            <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+        </h:panelGroup>
+        <h:form id="form" class="form-horizontal">
+            <div class="form-group">
+                 <div class="col-sm-4"></div>
+                 <div  class="col-sm-4">
+                     <h2 style="text-align: center">Autenticación de Usuario</h2>
+                 </div>
+             </div>
+            <hr/>
+            <div class="form-group">
+                <h:outputLabel for="username" value="Usuario:" class="control-label col-sm-4"/>
+                <div class="col-sm-4">
+                    <h:inputText value="" id="userName" class="form-control" required="true" label="username" />
+                 </div>
+            </div>
+            <div class="form-group">
+                <h:outputLabel for="password" value="Clave:" class="control-label col-sm-4"/>
+                <div class="col-sm-4">
+                    <h:inputSecret value="" id="userPassword" required="true" class="form-control" label="password" />
+                 </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <div class="col-md-4">
+                        <h:commandButton value="#{bundle.UserLogin}" action="#{userController.create}" class="btn btn-primary" ></h:commandButton>
+                        </div>
+                    <div class="col-md-6">
+                        <h:commandLink action="#{userController.prepareList}" value="#{bundle.CreateUserShowAllLink}" immediate="true" class="btn btn-default"/>
+                    </div>
+                    <div class="col-md-2">
+                        <h:link outcome="/index" value="#{bundle.CreateUserIndexLink}" class="btn btn-success"/>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </h:body>
+</html>

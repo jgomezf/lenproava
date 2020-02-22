@@ -62,14 +62,18 @@ public abstract class AbstractFacade<T> {
     }
     
     public T login(String userName, String userPassword){
-        javax.persistence.criteria.CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
+        try{
+            javax.persistence.criteria.CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
 
-        javax.persistence.criteria.CriteriaQuery<T> cq = cb.createQuery(entityClass);
-        javax.persistence.criteria.Root<T> c = cq.from(entityClass);
-        cq.select(c).where(cb.equal(c.get("userName"),userName),cb.equal(c.get("userPassword"),userPassword));
+            javax.persistence.criteria.CriteriaQuery<T> cq = cb.createQuery(entityClass);
+            javax.persistence.criteria.Root<T> c = cq.from(entityClass);
+            cq.select(c).where(cb.equal(c.get("userName"),userName),cb.equal(c.get("userPassword"),userPassword));
 
-        //javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
-        //cq.select(cq.from(entityClass));
-        return (T) getEntityManager().createQuery(cq).getSingleResult();
+            //javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
+            //cq.select(cq.from(entityClass));
+            return (T) getEntityManager().createQuery(cq).getSingleResult();
+        }catch (Exception e){
+            return null;
+        }        
     }
 }

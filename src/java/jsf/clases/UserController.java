@@ -238,7 +238,10 @@ public class UserController implements Serializable {
             return "/pages/cliente/List";
         }
         else
-            return "";        
+        {
+            JsfUtil.addErrorMessage(ResourceBundle.getBundle("/Bundle").getString("ErrorLogin"));
+            return "";
+        }
     }
 
 }

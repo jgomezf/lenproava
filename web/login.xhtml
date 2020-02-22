@@ -12,10 +12,7 @@ and open the template in the editor.
         <title>Login</title>
         <h:outputStylesheet name="css/bootstrap.min.css"/>
     </h:head> 
-    <h:body style="text-align:center">
-        <h:panelGroup id="mensajes" layout="block">
-            <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-        </h:panelGroup>
+    <h:body style="text-align:center">        
         <h:form id="form" class="form-horizontal">
             <div class="form-group">
                  <div class="col-sm-4"></div>
@@ -37,17 +34,13 @@ and open the template in the editor.
                  </div>
             </div>
             <div class="form-group">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-4">
-                    <div class="col-md-4">
-                        <h:commandButton value="#{bundle.UserLogin}" action="#{userController.login}" class="btn btn-primary" ></h:commandButton>
-                        </div>
-                    <div class="col-md-6">
-                        <h:commandLink action="#{userController.prepareList}" value="#{bundle.CreateUserShowAllLink}" immediate="true" class="btn btn-default"/>
-                    </div>
-                    <div class="col-md-2">
-                        <h:link outcome="/index" value="#{bundle.CreateUserIndexLink}" class="btn btn-success"/>
-                    </div>
+                <h:panelGroup id="mensajes" layout="block" style="text-align: -webkit-center;">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+            </div>            
+            <div class="form-group">
+                <div class="col-md-12">
+                    <h:commandButton value="#{bundle.UserLogin}" action="#{userController.login}" class="btn btn-success" ></h:commandButton>
                 </div>
             </div>
         </h:form>
